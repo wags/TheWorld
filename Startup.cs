@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using TheWorld.Services;
-using Microsoft.Extensions.Configuration;
-using TheWorld.Models;
 using Newtonsoft.Json.Serialization;
-using AutoMapper;
+using TheWorld.Models;
+using TheWorld.Services;
 using TheWorld.ViewModels;
 
 namespace TheWorld
