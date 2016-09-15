@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -50,6 +51,14 @@ namespace TheWorld
 
             services.AddDbContext<WorldContext>();
 
+            services.AddIdentity<WorldUser, IdentityRole>(config =>
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/auth/login";
+            })
+            .AddEntityFrameworkStores<WorldContext>();
+
             services.AddScoped<IWorldRepository, WorldRepository>();
 
             services.AddTransient<GeoCoordsService>();
@@ -88,6 +97,8 @@ namespace TheWorld
             }
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             app.UseMvc(config =>
             {
