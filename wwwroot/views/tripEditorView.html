@@ -1,5 +1,7 @@
 ﻿<div>
-    <a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i> Back</a>
+    <div>
+        <a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i> Back</a>
+    </div>
     <div class="col-md-3">
         <h2>{{ vm.tripName }}</h2>
         <wait-cursor display-when="vm.isBusy"></wait-cursor>
@@ -15,7 +17,7 @@
                 <td>{{ stop.arrival | date:shortDate }}</td>
             </tr>
         </table>
-        
+
         <form>
             <div class="form-group">
                 <label>Date</label>
